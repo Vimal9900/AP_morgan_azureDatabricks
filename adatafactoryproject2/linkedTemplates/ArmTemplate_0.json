@@ -11,6 +11,10 @@
 			"type": "string",
 			"defaultValue": "https://keyvaultproject222.vault.azure.net/"
 		},
+		"storagetriggerproject2_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/5c8be605-55a9-4e3e-b197-6bf2fac015ae/resourceGroups/project2/providers/Microsoft.Storage/storageAccounts/azurebasicproject2"
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://azurebasicproject2.dfs.core.windows.net/"
@@ -18,14 +22,6 @@
 		"AzureDatabricks_LS_properties_typeProperties_existingClusterId": {
 			"type": "string",
 			"defaultValue": "0801-162348-lk3pmrz2"
-		},
-		"storagetriggerproject2_properties_project2pipeline_parameters_fileName": {
-			"type": "string",
-			"defaultValue": "@triggerBody().fileName"
-		},
-		"storagetriggerproject2_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/5c8be605-55a9-4e3e-b197-6bf2fac015ae/resourceGroups/project2/providers/Microsoft.Storage/storageAccounts/azurebasicproject2"
 		},
 		"trigger1_properties_project2pipeline_parameters_fileName": {
 			"type": "string",
@@ -49,6 +45,27 @@
 				"type": "AzureKeyVault",
 				"typeProperties": {
 					"baseUrl": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/storagetriggerproject2')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/inputdata/blobs/landing/",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('storagetriggerproject2_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
 				}
 			},
 			"dependsOn": []
@@ -147,39 +164,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricks_LS')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/storagetriggerproject2')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "project2pipeline",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"fileName": "[parameters('storagetriggerproject2_properties_project2pipeline_parameters_fileName')]"
-						}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/inputdata/blobs/landing/",
-					"blobPathEndsWith": ".csv",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('storagetriggerproject2_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/project2pipeline')]"
 			]
 		},
 		{
