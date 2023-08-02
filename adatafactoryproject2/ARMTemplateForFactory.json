@@ -19,10 +19,6 @@
 			"type": "string",
 			"defaultValue": "https://keyvaultproject222.vault.azure.net/"
 		},
-		"storagetriggerproject2_properties_project2pipeline_parameters_fileName": {
-			"type": "string",
-			"defaultValue": "@triggerBody().fileName"
-		},
 		"storagetriggerproject2_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/5c8be605-55a9-4e3e-b197-6bf2fac015ae/resourceGroups/project2/providers/Microsoft.Storage/storageAccounts/azurebasicproject2"
@@ -155,18 +151,8 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "project2pipeline",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"fileName": "[parameters('storagetriggerproject2_properties_project2pipeline_parameters_fileName')]"
-						}
-					}
-				],
+				"runtimeState": "Stopped",
+				"pipelines": [],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
 					"blobPathBeginsWith": "/inputdata/blobs/landing/",
@@ -178,9 +164,7 @@
 					]
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/project2pipeline')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/trigger1')]",

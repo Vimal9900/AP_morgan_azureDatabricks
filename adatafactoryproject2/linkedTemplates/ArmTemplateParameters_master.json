@@ -14,9 +14,6 @@
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://keyvaultproject222.vault.azure.net/"
 		},
-		"storagetriggerproject2_properties_project2pipeline_parameters_fileName": {
-			"value": "@triggerBody().fileName"
-		},
 		"storagetriggerproject2_properties_typeProperties_scope": {
 			"value": "/subscriptions/5c8be605-55a9-4e3e-b197-6bf2fac015ae/resourceGroups/project2/providers/Microsoft.Storage/storageAccounts/azurebasicproject2"
 		},
