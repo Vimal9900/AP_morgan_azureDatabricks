@@ -2,8 +2,18 @@
 	"name": "storagetriggerproject2",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
-		"pipelines": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "project2pipeline",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"fileName": "Product.csv"
+				}
+			}
+		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
 			"blobPathBeginsWith": "/inputdata/blobs/landing/",
