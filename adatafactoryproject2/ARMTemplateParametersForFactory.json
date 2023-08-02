@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adatafactoryproject2"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://azurebasicproject2.dfs.core.windows.net/"
+		},
+		"AzureDatabricks_LS_properties_typeProperties_existingClusterId": {
+			"value": "0801-162348-lk3pmrz2"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://keyvaultproject222.vault.azure.net/"
+		},
+		"storagetriggerproject2_properties_project2pipeline_parameters_fileName": {
+			"value": "@triggerBody().fileName"
+		},
+		"storagetriggerproject2_properties_typeProperties_scope": {
+			"value": "/subscriptions/5c8be605-55a9-4e3e-b197-6bf2fac015ae/resourceGroups/project2/providers/Microsoft.Storage/storageAccounts/azurebasicproject2"
+		},
+		"trigger1_properties_project2pipeline_parameters_fileName": {
+			"value": "Product.csv"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/5c8be605-55a9-4e3e-b197-6bf2fac015ae/resourceGroups/project2/providers/Microsoft.Storage/storageAccounts/azurebasicproject2"
+		}
+	}
+}
