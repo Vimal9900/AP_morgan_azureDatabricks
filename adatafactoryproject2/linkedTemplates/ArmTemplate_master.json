@@ -19,6 +19,10 @@
 			"type": "string",
 			"defaultValue": "https://keyvaultproject222.vault.azure.net/"
 		},
+		"storagetriggerproject2_properties_project2pipeline_parameters_fileName": {
+			"type": "string",
+			"defaultValue": "Product.csv"
+		},
 		"storagetriggerproject2_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/5c8be605-55a9-4e3e-b197-6bf2fac015ae/resourceGroups/project2/providers/Microsoft.Storage/storageAccounts/azurebasicproject2"
@@ -61,14 +65,17 @@
 					"AzureKeyVault1_properties_typeProperties_baseUrl": {
 						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
 					},
-					"storagetriggerproject2_properties_typeProperties_scope": {
-						"value": "[parameters('storagetriggerproject2_properties_typeProperties_scope')]"
-					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					},
 					"AzureDatabricks_LS_properties_typeProperties_existingClusterId": {
 						"value": "[parameters('AzureDatabricks_LS_properties_typeProperties_existingClusterId')]"
+					},
+					"storagetriggerproject2_properties_project2pipeline_parameters_fileName": {
+						"value": "[parameters('storagetriggerproject2_properties_project2pipeline_parameters_fileName')]"
+					},
+					"storagetriggerproject2_properties_typeProperties_scope": {
+						"value": "[parameters('storagetriggerproject2_properties_typeProperties_scope')]"
 					},
 					"trigger1_properties_project2pipeline_parameters_fileName": {
 						"value": "[parameters('trigger1_properties_project2pipeline_parameters_fileName')]"
